@@ -41,21 +41,11 @@ fun SkripsiApp(
                 HalamanSatu(
                     onSubmitButtonClicked = {
                         viewModel.setFormulir(it)
-                        navHostController.navigate(PengelolaHalaman.Summary.name) },
-                    onBackButtonClicked = {navHostController.navigate(PengelolaHalaman.Home.name)})
-            }
-            composable(route = PengelolaHalaman.Rasa.name){
-                val context = LocalContext.current
-                HalamanDua(
-                    pilihanRasa = flavors.map { id -> context.resources.getString(id) },
-                    onSelectionChanged = {viewModel.setRasa(it)},
-                    onConfirmButtonClicked = {viewModel.setJumlah(it)},
-                    onNextButtonClicked = { navHostController.navigate(PengelolaHalaman.Summary.name) },
-                    onBackButtonClicked = { navHostController.navigate(PengelolaHalaman.Fomulir.name) })
+                        navHostController.navigate(PengelolaHalaman.Summary.name) } )
             }
             composable(route = PengelolaHalaman.Summary.name){
-                HalamanTiga(orderUiState = uiState,
-                    onBackButtonClicked = {navHostController.navigate(PengelolaHalaman.Rasa.name)})
+                HalamanDua(orderUiState = uiState,
+                    onBackButtonClicked = {navHostController.navigate(PengelolaHalaman.Formulir.name)})
             }
         }
 
